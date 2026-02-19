@@ -196,42 +196,17 @@ section{padding:5.5rem 5%;}
 .modal-cancel{padding:0.7rem 1.4rem;background:var(--s100);color:var(--s600);border:none;border-radius:4px;font-size:0.902rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
 .modal-submit{padding:0.7rem 1.4rem;background:var(--s800);color:white;border:none;border-radius:4px;font-size:0.902rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
 .modal-submit:hover{background:var(--gold);}
-.img-upload-area{border:2px dashed var(--s300);border-radius:8px;padding:1.5rem;text-align:center;cursor:pointer;transition:all 0.2s;background:var(--s50);}
-.img-upload-area:hover{border-color:var(--gold);background:rgba(201,169,110,0.04);}
-.img-upload-area.drag-over{border-color:var(--gold);background:rgba(201,169,110,0.08);}
-.img-upload-icon{font-size:1.8rem;margin-bottom:0.4rem;}
-.img-upload-text{font-size:0.858rem;color:var(--s500);}
-.img-upload-text span{color:var(--gold);font-weight:600;text-decoration:underline;cursor:pointer;}
-.img-preview-wrap{display:flex;flex-wrap:wrap;gap:0.6rem;margin-top:0.8rem;}
-.img-preview-item{position:relative;width:80px;height:80px;border-radius:6px;overflow:hidden;border:1px solid var(--s200);}
-.img-preview-item img{width:100%;height:100%;object-fit:cover;}
-.img-preview-remove{position:absolute;top:2px;right:2px;width:20px;height:20px;background:rgba(0,0,0,0.6);color:white;border:none;border-radius:50%;font-size:0.7rem;cursor:pointer;display:flex;align-items:center;justify-content:center;line-height:1;}
-
-/* DETAIL MODAL */
-.detail-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:510;align-items:center;justify-content:center;}
-.detail-overlay.open{display:flex;}
-.detail-modal{background:white;border-radius:12px;padding:2.5rem;width:min(650px,92vw);max-height:85vh;overflow-y:auto;}
-.detail-modal .detail-cat{display:inline-block;background:var(--gold-pale);color:var(--accent);font-size:0.75rem;font-weight:700;padding:0.2rem 0.6rem;border-radius:3px;margin-bottom:0.8rem;}
-.detail-modal .detail-title{font-family:'Noto Serif KR',serif;font-size:1.3rem;font-weight:700;color:var(--s800);margin-bottom:0.5rem;}
-.detail-modal .detail-date{font-size:0.78rem;color:var(--s400);margin-bottom:1.2rem;}
-.detail-modal .detail-body{font-size:0.95rem;color:var(--s700);line-height:1.8;white-space:pre-wrap;margin-bottom:1.2rem;}
-.detail-modal .detail-images{display:flex;flex-wrap:wrap;gap:0.6rem;margin-bottom:1rem;}
-.detail-modal .detail-images img{max-width:100%;height:auto;border-radius:6px;cursor:pointer;}
-.detail-modal .detail-files a{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.85rem;color:var(--s600);text-decoration:underline;margin-right:0.8rem;margin-bottom:0.4rem;}
-.detail-modal .detail-close{display:block;margin:1.5rem auto 0;padding:0.7rem 2rem;background:var(--s800);color:white;border:none;border-radius:4px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Noto Sans KR',sans-serif;}
-.detail-modal .detail-close:hover{background:var(--gold);}
-.board-card{cursor:pointer;}
 
 /* DOWNLOAD SECTION */
 .dl-section{background:var(--s100);}
 .dl-header{text-align:center;margin-bottom:3rem;}
 .dl-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;max-width:960px;margin:0 auto;}
-.dl-card{background:white;border:1.5px solid var(--s200);border-radius:10px;padding:2rem;transition:all 0.3s;}
+.dl-card{background:white;border:1.5px solid var(--s200);border-radius:10px;padding:2rem;transition:all 0.3s;display:flex;flex-direction:column;}
 .dl-card:hover{transform:translateY(-3px);box-shadow:0 16px 36px rgba(0,0,0,0.07);}
 .dl-card.plan-c-dl{border-color:var(--gold);background:linear-gradient(135deg,white,rgba(201,169,110,0.04));}
 .dl-plan-badge{display:inline-flex;align-items:center;gap:0.35rem;font-size:0.715rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);background:var(--gold-pale);padding:0.28rem 0.7rem;border-radius:100px;margin-bottom:0.8rem;}
 .dl-title{font-family:'Noto Serif KR',serif;font-size:1.1rem;font-weight:700;color:var(--s800);margin-bottom:0.4rem;}
-.dl-desc{font-size:0.858rem;color:var(--s500);line-height:1.6;margin-bottom:1.3rem;}
+.dl-desc{font-size:0.858rem;color:var(--s500);line-height:1.6;margin-bottom:1.3rem;flex:1;}
 .pw-wrap{display:flex;gap:0.4rem;margin-bottom:0.7rem;}
 .pw-input{flex:1;padding:0.65rem 0.9rem;border:1.5px solid var(--s200);border-radius:4px;font-size:0.902rem;font-family:'Noto Sans KR',sans-serif;color:var(--s700);background:var(--s50);outline:none;transition:border-color 0.2s;}
 .pw-input:focus{border-color:var(--gold);}
@@ -1013,24 +988,6 @@ footer{background:var(--s900);color:var(--s400);text-align:center;padding:3rem 5
       <textarea id="post-body" placeholder="공유하고 싶은 AI 자료나 인사이트를 자유롭게 써주세요 😊"></textarea>
     </div>
     <div class="form-group">
-      <label>이미지 첨부 (선택)</label>
-      <input type="file" id="post-images" multiple accept="image/*" style="display:none;" onchange="handleImageSelect(event)">
-      <div class="img-upload-area" id="imgUploadArea" onclick="document.getElementById('post-images').click()" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="event.preventDefault();this.classList.remove('drag-over');handleImageDrop(event)">
-        <div class="img-upload-icon">📷</div>
-        <div class="img-upload-text">이미지를 드래그하거나 <span>클릭하여 선택</span>해주세요</div>
-      </div>
-      <div class="img-preview-wrap" id="imgPreviewWrap"></div>
-    </div>
-    <div class="form-group">
-      <label>파일 첨부 (선택)</label>
-      <input type="file" id="post-files" multiple style="display:none;" onchange="handleFileSelect(event)">
-      <div class="img-upload-area" onclick="document.getElementById('post-files').click()" style="border-color:var(--s300);">
-        <div class="img-upload-icon">📎</div>
-        <div class="img-upload-text">파일을 <span>클릭하여 선택</span>해주세요 (PDF, 문서 등)</div>
-      </div>
-      <div id="filePreviewWrap" style="margin-top:0.5rem;"></div>
-    </div>
-    <div class="form-group">
       <label>태그 (선택)</label>
       <input type="text" id="post-tag" placeholder="예: 추천 자료, 실전 팁">
     </div>
@@ -1041,33 +998,7 @@ footer{background:var(--s900);color:var(--s400);text-align:center;padding:3rem 5
   </div>
 </div>
 
-<!-- ── DETAIL MODAL ── -->
-<div class="detail-overlay" id="detailModal">
-  <div class="detail-modal">
-    <div class="detail-cat" id="detail-cat"></div>
-    <div class="detail-title" id="detail-title"></div>
-    <div class="detail-date" id="detail-date"></div>
-    <div class="detail-images" id="detail-images"></div>
-    <div class="detail-body" id="detail-body"></div>
-    <div class="detail-files" id="detail-files"></div>
-    <button class="detail-close" onclick="closeDetail()">닫기</button>
-  </div>
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
-<script>
-// ─── Firebase 초기화 ───
-firebase.initializeApp({
-  apiKey: "AIzaSyBMMMTJIqtS7hFwVEsHhC6ABwo99qH-OVA",
-  authDomain: "ai-in-ebook.firebaseapp.com",
-  projectId: "ai-in-ebook",
-  storageBucket: "ai-in-ebook.firebasestorage.app",
-  messagingSenderId: "537663053368",
-  appId: "1:537663053368:web:9844e09376d58e744a10cd"
-});
-const db = firebase.firestore();
-
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 // ─── 비밀번호 설정 (여기서 변경!) ───
 const PASSWORDS = {
   a: '0000',
@@ -1139,188 +1070,28 @@ function expandPrompt(id, btn) {
 
 // BOARD WRITE MODAL
 let posts = [];
-let uploadedImageFiles = [];
-let uploadedAttachFiles = [];
 function openModal() { document.getElementById('writeModal').classList.add('open'); }
 function closeModal() { document.getElementById('writeModal').classList.remove('open'); }
-
-// 이미지 처리
-function handleImageSelect(e) {
-  Array.from(e.target.files).forEach(f => addImageFile(f));
-}
-function handleImageDrop(e) {
-  Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')).forEach(f => addImageFile(f));
-}
-function addImageFile(file) {
-  if (uploadedImageFiles.length >= 5) { alert('이미지는 최대 5장까지 첨부할 수 있습니다.'); return; }
-  const reader = new FileReader();
-  reader.onload = function(ev) {
-    uploadedImageFiles.push({ file, preview: ev.target.result });
-    renderImagePreviews();
-  };
-  reader.readAsDataURL(file);
-}
-function renderImagePreviews() {
-  const wrap = document.getElementById('imgPreviewWrap');
-  wrap.innerHTML = uploadedImageFiles.map((item, i) =>
-    `<div class="img-preview-item"><img src="${item.preview}" alt="첨부 이미지"><button class="img-preview-remove" onclick="event.stopPropagation();removeImage(${i})">✕</button></div>`
-  ).join('');
-}
-function removeImage(idx) {
-  uploadedImageFiles.splice(idx, 1);
-  renderImagePreviews();
-}
-
-// 파일 처리
-function handleFileSelect(e) {
-  Array.from(e.target.files).forEach(f => {
-    if (uploadedAttachFiles.length >= 3) { alert('파일은 최대 3개까지 첨부할 수 있습니다.'); return; }
-    if (f.size > 800 * 1024) { alert(f.name + ' 파일이 너무 큽니다. (최대 800KB)'); return; }
-    const reader = new FileReader();
-    reader.onload = function(ev) {
-      uploadedAttachFiles.push({ name: f.name, size: f.size, data: ev.target.result });
-      renderFilePreviews();
-    };
-    reader.readAsDataURL(f);
-  });
-}
-function renderFilePreviews() {
-  const wrap = document.getElementById('filePreviewWrap');
-  wrap.innerHTML = uploadedAttachFiles.map((f, i) =>
-    `<div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.6rem;background:var(--s100);border-radius:4px;margin-bottom:0.3rem;font-size:0.85rem;">
-      <span>📎 ${f.name} (${(f.size/1024).toFixed(0)}KB)</span>
-      <button onclick="event.stopPropagation();removeFile(${i})" style="background:none;border:none;cursor:pointer;color:var(--s500);font-size:1rem;">✕</button>
-    </div>`
-  ).join('');
-}
-function removeFile(idx) {
-  uploadedAttachFiles.splice(idx, 1);
-  renderFilePreviews();
-}
-
-// 이미지 압축 (base64, max 200KB)
-function compressImage(file) {
-  return new Promise((resolve) => {
-    const img = new Image();
-    img.onload = function() {
-      const canvas = document.createElement('canvas');
-      let w = img.width, h = img.height;
-      const MAX = 800;
-      if (w > MAX || h > MAX) {
-        if (w > h) { h = Math.round(h * MAX / w); w = MAX; }
-        else { w = Math.round(w * MAX / h); h = MAX; }
-      }
-      canvas.width = w; canvas.height = h;
-      canvas.getContext('2d').drawImage(img, 0, 0, w, h);
-      resolve(canvas.toDataURL('image/jpeg', 0.6));
-    };
-    img.src = URL.createObjectURL(file);
-  });
-}
-
-// 게시하기
-async function submitPost() {
+function submitPost() {
   const title = document.getElementById('post-title').value.trim();
   const body = document.getElementById('post-body').value.trim();
   const cat = document.getElementById('post-cat').value;
   const tag = document.getElementById('post-tag').value.trim() || cat;
   if (!title || !body) { alert('제목과 내용을 입력해주세요!'); return; }
-
-  const submitBtn = document.querySelector('.modal-submit');
-  submitBtn.disabled = true;
-  submitBtn.textContent = '업로드 중...';
-
-  try {
-    // 이미지 압축
-    const imageUrls = [];
-    for (const item of uploadedImageFiles) {
-      const compressed = await compressImage(item.file);
-      imageUrls.push(compressed);
-    }
-
-    const now = new Date();
-    const date = `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
-
-    // Firestore 저장
-    await db.collection('posts').add({
-      title, body, cat, tag, date,
-      imageUrls,
-      fileData: uploadedAttachFiles.map(f => ({ name: f.name, size: f.size, data: f.data })),
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    });
-
-    // 폼 초기화
-    document.getElementById('post-title').value = '';
-    document.getElementById('post-body').value = '';
-    document.getElementById('post-tag').value = '';
-    document.getElementById('post-images').value = '';
-    document.getElementById('post-files').value = '';
-    uploadedImageFiles = [];
-    uploadedAttachFiles = [];
-    document.getElementById('imgPreviewWrap').innerHTML = '';
-    document.getElementById('filePreviewWrap').innerHTML = '';
-    closeModal();
-    loadPosts();
-  } catch (err) {
-    console.error(err);
-    alert('업로드 중 오류가 발생했습니다: ' + err.message);
-  } finally {
-    submitBtn.disabled = false;
-    submitBtn.textContent = '게시하기';
-  }
+  const now = new Date();
+  const date = `${now.getFullYear()}.${String(now.getMonth()+1).padStart(2,'0')}.${String(now.getDate()).padStart(2,'0')}`;
+  posts.unshift({title, body, cat, tag, date});
+  const card = document.createElement('div');
+  card.className = 'board-card';
+  card.innerHTML = `<div class="board-cat">${cat}</div><div class="board-title">${title}</div><div class="board-excerpt">${body.slice(0,100)}${body.length>100?'...':''}</div><div class="board-meta"><span class="board-tag">${tag}</span><span>${date}</span></div>`;
+  document.getElementById('board-grid').prepend(card);
+  document.getElementById('post-title').value = '';
+  document.getElementById('post-body').value = '';
+  document.getElementById('post-tag').value = '';
+  closeModal();
 }
-
-// Firestore에서 게시글 불러오기
-async function loadPosts() {
-  try {
-    const snap = await db.collection('posts').orderBy('createdAt','desc').get();
-    const grid = document.getElementById('board-grid');
-    // 기존 동적 카드 제거 (샘플 카드 유지)
-    grid.querySelectorAll('.board-card.dynamic').forEach(c => c.remove());
-    snap.forEach(doc => {
-      const d = doc.data();
-      const card = document.createElement('div');
-      card.className = 'board-card dynamic';
-      const imgHtml = (d.imageUrls && d.imageUrls.length > 0)
-        ? `<div style="display:flex;gap:0.4rem;margin-bottom:0.6rem;overflow-x:auto;">${d.imageUrls.map(u => `<img src="${u}" style="width:60px;height:60px;object-fit:cover;border-radius:4px;flex-shrink:0;" alt="첨부">`).join('')}</div>` : '';
-      const fileHtml = (d.fileData && d.fileData.length > 0)
-        ? `<div style="margin-bottom:0.5rem;">${d.fileData.map(f => `<a href="${f.data}" download="${f.name}" style="display:inline-flex;align-items:center;gap:0.3rem;font-size:0.78rem;color:var(--s600);text-decoration:underline;margin-right:0.5rem;">📎 ${f.name}</a>`).join('')}</div>` : '';
-      card.innerHTML = `<div class="board-cat">${d.cat}</div><div class="board-title">${d.title}</div>${imgHtml}${fileHtml}<div class="board-excerpt">${d.body.slice(0,100)}${d.body.length>100?'...':''}</div><div class="board-meta"><span class="board-tag">${d.tag}</span><span>${d.date}</span></div>`;
-      card.addEventListener('click', function(){ openDetail(d); });
-      grid.prepend(card);
-    });
-  } catch(err) { console.error('게시글 로드 실패:', err); }
-}
-// 페이지 로드 시 게시글 불러오기 (에러 나도 다른 기능에 영향 없도록)
-setTimeout(function(){ loadPosts().catch(function(e){ console.error(e); }); }, 500);
-
 document.getElementById('writeModal').addEventListener('click', e => {
   if (e.target === document.getElementById('writeModal')) closeModal();
-});
-
-// DETAIL MODAL
-function openDetail(d) {
-  document.getElementById('detail-cat').textContent = d.cat || '';
-  document.getElementById('detail-title').textContent = d.title || '';
-  document.getElementById('detail-date').textContent = d.date || '';
-  document.getElementById('detail-body').textContent = d.body || '';
-  // 이미지
-  const imgWrap = document.getElementById('detail-images');
-  if (d.imageUrls && d.imageUrls.length > 0) {
-    imgWrap.innerHTML = d.imageUrls.map(u => `<img src="${u}" style="max-width:100%;border-radius:6px;" alt="첨부 이미지">`).join('');
-  } else { imgWrap.innerHTML = ''; }
-  // 파일
-  const fileWrap = document.getElementById('detail-files');
-  if (d.fileData && d.fileData.length > 0) {
-    fileWrap.innerHTML = d.fileData.map(f => `<a href="${f.data}" download="${f.name}">📎 ${f.name} (${(f.size/1024).toFixed(0)}KB)</a>`).join('');
-  } else { fileWrap.innerHTML = ''; }
-  document.getElementById('detailModal').classList.add('open');
-}
-function closeDetail() {
-  document.getElementById('detailModal').classList.remove('open');
-}
-document.getElementById('detailModal').addEventListener('click', e => {
-  if (e.target === document.getElementById('detailModal')) closeDetail();
 });
 
 // SCROLL ANIMATIONS
@@ -2962,8 +2733,12 @@ function switchTab(plan, tab) {
   if (tabEl) tabEl.classList.add('active');
   const clickedBtn = document.querySelector('#page-member-'+plan+' .tab-btn[onclick*=\''+tab+'\']');
   if (clickedBtn) clickedBtn.classList.add('active');
-  if (tab === 'prompts') plibRender(plan);
+  if (tab === 'prompt') {
+    const c = document.getElementById('plib-container-'+plan);
+    if (c && !c.hasChildNodes()) plibRender(plan);
+  }
 }
+
 </script>
 </body>
 </html>
