@@ -1017,7 +1017,7 @@ footer{background:var(--s900);color:var(--s400);text-align:center;padding:3rem 5
   </div>
 </div>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
 // ─── 비밀번호 설정 (여기서 변경!) ───
 const PASSWORDS = {
   a: '0000',
@@ -2788,4 +2788,9 @@ function switchTab(plan, tab) {
   const tabEl = document.getElementById('tab-'+plan+'-'+tab);
   if (tabEl) tabEl.classList.add('active');
   const clickedBtn = document.querySelector('#page-member-'+plan+' .tab-btn[onclick*=\''+tab+'\']');
-  if (clickedBtn
+  if (clickedBtn) clickedBtn.classList.add('active');
+  if (tab === 'prompts') plibRender(plan);
+}
+</script>
+</body>
+</html>

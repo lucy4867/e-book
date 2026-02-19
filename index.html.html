@@ -2732,4 +2732,13 @@ function switchTab(plan, tab) {
   const tabEl = document.getElementById('tab-'+plan+'-'+tab);
   if (tabEl) tabEl.classList.add('active');
   const clickedBtn = document.querySelector('#page-member-'+plan+' .tab-btn[onclick*=\''+tab+'\']');
-  if (clickedBtn
+  if (clickedBtn) clickedBtn.classList.add('active');
+  if (tab === 'prompt') {
+    const c = document.getElementById('plib-container-'+plan);
+    if (c && !c.hasChildNodes()) plibRender(plan);
+  }
+}
+
+</script>
+</body>
+</html>
